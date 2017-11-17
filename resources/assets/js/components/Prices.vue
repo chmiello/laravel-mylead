@@ -54,7 +54,7 @@
             },
             check: function (index) {
                 for (var i = 0, x = this.prices.length; i < x; i++) {
-                    this.$set(this.prices[i], 'currentprice', i == index);
+                    this.$set(this.prices[i], 'selected', i == index);
                 }
             }
         },

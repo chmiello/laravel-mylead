@@ -42965,7 +42965,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         check: function check(index) {
             for (var i = 0, x = this.prices.length; i < x; i++) {
-                this.$set(this.prices[i], 'currentprice', i == index);
+                this.$set(this.prices[i], 'selected', i == index);
             }
         }
     },
@@ -43132,6 +43132,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -43141,13 +43142,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            value: this.attributes.value,
-            description: this.attributes.description
+            price: this.attributes.price,
+            label: this.attributes.label
         };
     },
     computed: {
         currentprice: function currentprice() {
-            return this.attributes.currentprice;
+            return this.attributes.selected ? this.attributes.selected : 0;
+        },
+        id: function id() {
+            return this.attributes.id;
         }
     }
 });
@@ -43162,23 +43166,30 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("tr", [
     _c("td", [
+      _vm.id
+        ? _c("input", {
+            attrs: { type: "hidden", name: "prices[" + _vm.index + "][id]" },
+            domProps: { value: _vm.id }
+          })
+        : _vm._e(),
+      _vm._v(" "),
       _c("input", {
         directives: [
           {
             name: "model",
             rawName: "v-model",
-            value: _vm.value,
-            expression: "value"
+            value: _vm.price,
+            expression: "price"
           }
         ],
-        attrs: { type: "number", name: "prices[" + _vm.index + "][value]" },
-        domProps: { value: _vm.value },
+        attrs: { type: "number", name: "prices[" + _vm.index + "][price]" },
+        domProps: { value: _vm.price },
         on: {
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.value = $event.target.value
+            _vm.price = $event.target.value
           }
         }
       })
@@ -43190,18 +43201,18 @@ var render = function() {
           {
             name: "model",
             rawName: "v-model",
-            value: _vm.description,
-            expression: "description"
+            value: _vm.label,
+            expression: "label"
           }
         ],
-        attrs: { type: "text", name: "prices[" + _vm.index + "][description]" },
-        domProps: { value: _vm.description },
+        attrs: { type: "text", name: "prices[" + _vm.index + "][label]" },
+        domProps: { value: _vm.label },
         on: {
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.description = $event.target.value
+            _vm.label = $event.target.value
           }
         }
       })
@@ -43221,7 +43232,7 @@ var render = function() {
       _c("input", {
         attrs: {
           type: "hidden",
-          name: "prices[" + _vm.index + "][currentprice]",
+          name: "prices[" + _vm.index + "][selected]",
           required: ""
         },
         domProps: { value: _vm.currentprice }

@@ -23,4 +23,7 @@ return [
     'crete.error.prices-description.required' => 'Uzupełnij wszystkie ceny i ich opisy',
     'crete.error.active-price.required' => 'Proszę wybrać aktywną cenę',
     'crete.error.field.required' => 'Pole jest wymagane',
+
+    'edit.title' =>  'Edycja produktu',
+    'update.save' =>  'Uaktualnij produkt',
 ];

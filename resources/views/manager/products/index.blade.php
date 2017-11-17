@@ -25,7 +25,7 @@
                                         <td>{{ $product->name }}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn btn-sm btn-success" href="#">@lang('products.index.edit')</a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('products.edit', ['product'=> $product->id]) }}">@lang('products.index.edit')</a>
                                                 <a class="btn btn-sm btn-danger" href="{{ route('products.destroy', ['product'=> $product->id]) }}">@lang('products.index.delete')</a>
                                             </div>
                                         </td>

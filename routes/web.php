@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth', 'namespace' => 'Manager', 'as' => 'products.', 'prefix' => 'products'], function() {
     Route::get('/', 'ProductsController@index')->name('list');
     Route::get('/create', 'ProductsController@create')->name('create');
-    Route::post('/store', 'ProductsController@store')->name('store');
+    Route::post('/store/{product?}', 'ProductsController@store')->name('store');
     Route::get('/destroy/{product}', 'ProductsController@destroy')->name('destroy');
+    Route::get('/edit/{product}', 'ProductsController@edit')->name('edit');
 });

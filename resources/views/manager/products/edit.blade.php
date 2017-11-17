@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <form action="{{ route('products.store') }}" method="post">
+                    <form action="{{ route('products.store', ['product_id' => $product->id]) }}" method="post">
                         <div class="panel-heading">
-                            @lang('products.create.title')
+                            @lang('products.edit.title')
                             <span class="pull-right"><a class="btn btn-sm btn-primary" href="{{ route('products.list') }}">@lang('products.create.back')</a></span>
                         </div>
 
@@ -16,7 +16,7 @@
                         @endcomponent
 
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-success">@lang('products.create.save')</button>
+                            <button type="submit" class="btn btn-success">@lang('products.update.save')</button>
                         </div>
                     </form>
                 </div>
