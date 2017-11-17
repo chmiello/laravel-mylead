@@ -48,4 +48,10 @@ class ProductsController extends Controller
         return redirect(route('products.list'));
 
     }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->back();
+    }
 }

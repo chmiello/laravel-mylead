@@ -23,4 +23,5 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Manager', 'as' => 'product
     Route::get('/', 'ProductsController@index')->name('list');
     Route::get('/create', 'ProductsController@create')->name('create');
     Route::post('/store', 'ProductsController@store')->name('store');
+    Route::get('/destroy/{product}', 'ProductsController@destroy')->name('destroy');
 });
