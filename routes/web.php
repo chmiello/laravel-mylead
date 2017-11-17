@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Manager', 'as' => 'products.', 'prefix' => 'products'], function() {
+    Route::get('/', 'ProductsController@index')->name('list');
+    Route::get('/create', 'ProductsController@create')->name('create');
+    Route::post('/store', 'ProductsController@store')->name('store');
+});

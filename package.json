@@ -16,6 +16,12 @@
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "vue": "^2.5.4",
+    "vue-template-compiler": "2.5.4",
+    "vue-dom-portal": "^0.1.6",
+    "font-awesome": "^4.7.0"
+  },
+  "dependencies": {
+    "vuex": "^3.0.0"
   }
 }
